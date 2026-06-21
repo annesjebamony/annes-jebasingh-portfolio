@@ -9,12 +9,40 @@ const [email, setEmail] = useState("");
 const [subject, setSubject] = useState("");
 const [message, setMessage] = useState("");
 const [loading, setLoading] = useState(false);
+const [successMessage, setSuccessMessage] = useState("");
+const [errorMessage, setErrorMessage] = useState("");
 
 const handleSubmit = async (
 e: React.FormEvent<HTMLFormElement>
 ) => {
 e.preventDefault();
+setSuccessMessage("");
+setErrorMessage("");
 
+// Empty field validation
+if (
+  !firstName.trim() ||
+  !lastName.trim() ||
+  !email.trim() ||
+  !subject.trim() ||
+  !message.trim()
+) {
+  setErrorMessage(
+    "Please fill in all required fields."
+  );
+  return;
+}
+
+// Email validation
+const emailRegex =
+  /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+if (!emailRegex.test(email)) {
+  setErrorMessage(
+    "Please enter a valid email address."
+  );
+  return;
+}
  
 setLoading(true);
 
@@ -36,7 +64,8 @@ try {
   const data = await response.json();
 
   if (data.success) {
-    alert("Message sent successfully!");
+    setSuccessMessage("Thank you for your submission! I will get back to you soon!.");  
+     setErrorMessage("");
 
     setFirstName("");
     setLastName("");
@@ -44,10 +73,18 @@ try {
     setSubject("");
     setMessage("");
   } else {
-    alert("Failed to send message.");
+    setErrorMessage(
+  "Failed to send your message. Please try again."
+);
+
+setSuccessMessage("");
   }
 } catch (error) {
-  alert("Something went wrong.");
+  setErrorMessage(
+  "Something went wrong. Please try again."
+);
+
+setSuccessMessage("");
 }
 
 setLoading(false);
@@ -157,7 +194,7 @@ return ( <section
               onChange={(e) =>
                 setFirstName(e.target.value)
               }
-              required
+              
               className="
                 h-[55px]
                 w-full
@@ -183,7 +220,7 @@ return ( <section
               onChange={(e) =>
                 setLastName(e.target.value)
               }
-              required
+              
               className="
                 h-[55px]
                 w-full
@@ -211,7 +248,7 @@ return ( <section
             onChange={(e) =>
               setEmail(e.target.value)
             }
-            required
+            
             className="
               h-[55px]
               w-full
@@ -237,7 +274,7 @@ return ( <section
             onChange={(e) =>
               setSubject(e.target.value)
             }
-            required
+            
             className="
               h-[55px]
               w-full
@@ -295,7 +332,17 @@ return ( <section
         >
           {loading ? "Sending..." : "Submit"}
         </button>
+        {successMessage && (
+  <div className="mt-6 rounded-md border border-green-300 bg-green-50 p-4 text-center text-green-700">
+    {successMessage}
+  </div>
+)}
 
+{errorMessage && (
+  <div className="mt-6 rounded-md border border-red-300 bg-red-50 p-4 text-center text-red-700">
+    {errorMessage}
+  </div>
+)}
       </form>
 
     </div>
