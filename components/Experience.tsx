@@ -123,7 +123,7 @@ export default function Experience() {
                     className="
                       absolute
                       left-[8px]
-                      top-3
+                      top-0
                       h-6
                       w-6
                       rounded-full

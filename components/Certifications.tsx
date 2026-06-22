@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import { Eye } from "lucide-react";
 
@@ -76,6 +79,7 @@ const certificates = [
 ];
 
 export default function Certification() {
+   const [flippedCard, setFlippedCard] = useState<number | null>(null);
   return (
     <section
       id="certification"
@@ -102,23 +106,34 @@ export default function Certification() {
           {certificates.map((certificate, index) => (
             <div
               key={index}
+              onClick={() =>
+                setFlippedCard(
+                  flippedCard === index ? null : index
+                )
+              }
               className="
-                group
-                h-[320px]
-                [perspective:1000px]
+              group
+              h-[320px]
+              cursor-pointer
+              [perspective:1000px]
               "
             >
               <div
-                className="
-                  relative
-                  h-full
-                  w-full
-                  transition-all
-                  duration-500
-                  [transform-style:preserve-3d]
-                  group-hover:[transform:rotateY(180deg)]
-                "
-              >
+  className={`
+    relative
+    h-full
+    w-full
+    transition-all
+    duration-500
+    [transform-style:preserve-3d]
+    ${
+      flippedCard === index
+        ? "[transform:rotateY(180deg)]"
+        : ""
+    }
+    md:group-hover:[transform:rotateY(180deg)]
+  `}
+>
                 {/* Front */}
                 <div
                   className="
@@ -180,6 +195,7 @@ export default function Certification() {
 
                   <a
                     href={certificate.link}
+                    onClick={(e) => e.stopPropagation()}
                     target="_blank"
                     rel="noreferrer"
                     className="
