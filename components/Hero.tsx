@@ -130,7 +130,7 @@ return ( <section
       <div className="mt-8 flex gap-4 md:hidden">
 
         <a
-          href="YOUR_GOOGLE_DRIVE_LINK"
+          href="https://drive.google.com/file/d/17tB8R7s8rUodtlwfxJYnwtCEAqWEUZz5/view?usp=drive_link"
           target="_blank"
           rel="noopener noreferrer"
           className="
