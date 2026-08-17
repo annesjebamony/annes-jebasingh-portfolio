@@ -75,8 +75,8 @@ export default function Recommendation() {
       image: "/recommendations/Jason.jpg",
       linkedin: "https://www.linkedin.com/in/jason-vignone-a4683b54/",
       name: "Jason Vignone",
-      role: "Associate Director, Compliance, Evaluation, and Community Partnership Management",
-      company: "DePaul University",
+      role: "Director of Graduate Admissions and Retention",
+      company: "Governors State University",
       text: "Annes is a consummate professional with a strong eye for detail and a natural ability to build relationships with clients. She understands both the technical and human sides of a project, communicates complex processes clearly, and ensures that everyone stays aligned. Her rare combination of technical expertise, project management, and relationship-building skills truly sets her apart."
     },
     {
