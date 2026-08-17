@@ -70,7 +70,23 @@ export default function Recommendation() {
       role: "Associate Director, Compliance, Evaluation, and Community Partnership Management",
       company: "DePaul University",
       text: "Annes consistently exceeded expectations in all areas of her work. Her ability to quickly learn new systems, reliability, and high quality of work were invaluable to our team. Her contributions improved data collection processes, system utilization, and reporting efficiency. She is a skilled, dedicated, and thoughtful professional who would be an asset to any team"
-    }
+    },
+    {
+      image: "/recommendations/Jason.jpg",
+      linkedin: "https://www.linkedin.com/in/jason-vignone-a4683b54/",
+      name: "Jason Vignone",
+      role: "Associate Director, Compliance, Evaluation, and Community Partnership Management",
+      company: "DePaul University",
+      text: "Annes is a consummate professional with a strong eye for detail and a natural ability to build relationships with clients. She understands both the technical and human sides of a project, communicates complex processes clearly, and ensures that everyone stays aligned. Her rare combination of technical expertise, project management, and relationship-building skills truly sets her apart."
+    },
+    {
+      image: "/recommendations/Manoj.jpg",
+      linkedin: "https://www.linkedin.com/in/manoj-gandlapalli-22684587/",
+      name: "Manoj Gandlapalli",
+      role: "Director of Enrollment Management Technology",
+      company: "Governors State University",
+      text: "Annes consistently demonstrated professionalism, technical expertise, and a strong commitment to delivering high-quality results. She made valuable contributions to our CRM and reporting initiatives by developing Tableau dashboards, enhancing data visualizations, and maintaining the integrity of our Slate CRM data. Her attention to detail and ability to deliver accurate, reliable work made her a valuable member of our team.  I am confident she will be an asset to any organization."
+    },
   ];
 
   const [current, setCurrent] = useState(0);
